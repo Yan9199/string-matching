@@ -24,9 +24,10 @@ public class PartialMatchLengthUpdateValuesAsMatrix<T> extends PartialMatchLengt
         matrix = new int[len + 1][size];
         if (len == 0) return;
         final T[] arrayWithDistinctLetters = buildArrayWithDistinctLetters(fct, searchString);
-        for (int i = 0, state = 1;; i++, state++) {
+        for (int i = 0, state = 1; ; i++, state++) {
             if (i == len) {
-                if (k == 0) for (T t : arrayWithDistinctLetters) matrix[i][fct.apply(t)] = buildAndCompute(searchString, t, i, this);
+                if (k == 0) for (T t : arrayWithDistinctLetters)
+                    matrix[i][fct.apply(t)] = buildAndCompute(searchString, t, i, this);
                 else for (int j = 0; j < size; j++) matrix[i][j] = matrix[k][j];
                 return;
             }

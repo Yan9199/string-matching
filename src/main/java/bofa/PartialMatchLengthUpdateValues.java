@@ -43,12 +43,14 @@ public abstract class PartialMatchLengthUpdateValues<T> {
      * @return The amount k.
      */
     protected int computePartialMatchLengthUpdateValues(T[] searchString) {
-        for (int index = 1, len = searchString.length; index < len; index++) if (match(searchString, index, len)) return len - index;
+        for (int index = 1, len = searchString.length; index < len; index++)
+            if (match(searchString, index, len)) return len - index;
         return 0;
     }
 
     private boolean match(T[] searchString, int index, int len) {
-        for (int i = 0; index < len; i++, index++) if (fct.apply(searchString[i]) != fct.apply(searchString[index])) return false;
+        for (int i = 0; index < len; i++, index++)
+            if (fct.apply(searchString[i]) != fct.apply(searchString[index])) return false;
         return true;
     }
 }

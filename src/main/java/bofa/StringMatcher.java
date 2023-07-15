@@ -35,7 +35,9 @@ public class StringMatcher<T> {
         final int length = source.length, len = VALUES.getSearchStringLength();
         if (length == 0 || length < len || len == 0) return list;
         int currentState = 0;
-        for (int i = 0; i < length; i++) if ((currentState = VALUES.getPartialMatchLengthUpdate(currentState, source[i])) == len) list.add(i - len + 2);
+        for (int i = 0; i < length; i++)
+            if ((currentState = VALUES.getPartialMatchLengthUpdate(currentState, source[i])) == len)
+                list.add(i - len + 2);
         return list;
     }
 }

@@ -25,6 +25,7 @@ public class Transition<T> {
      * @param letters The letters that will make this transition lead to the next state (j).
      */
     public Transition(int j, List<T> letters) {
-        J = j; LETTERS = letters;
+        J = j;
+        LETTERS = letters;
     }
 }

@@ -27,9 +27,12 @@ public class PartialMatchLengthUpdateValuesAsAutomaton<T> extends PartialMatchLe
         super(fct);
         final int len = searchString.length, k = computePartialMatchLengthUpdateValues(searchString);
         theStates = (ArrayList<Transition<T>>[]) new ArrayList[len + 1];
-        if (len == 0) {theStates[0] = new ArrayList<>(); return;}
+        if (len == 0) {
+            theStates[0] = new ArrayList<>();
+            return;
+        }
         final T[] arrayWithDistinctLetters = buildArrayWithDistinctLetters(fct, searchString);
-        for (int i = 0;; i++) {
+        for (int i = 0; ; i++) {
             theStates[i] = new ArrayList<>();
             if (i == len) {
                 if (k == 0) {

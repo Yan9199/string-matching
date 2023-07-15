@@ -19,7 +19,11 @@ public class SelectionOfCharsIndex implements FunctionToInt<Character> {
      */
     public SelectionOfCharsIndex(List<Character> theAlphabet) {
         theChars = new char[theAlphabet.size()];
-        int i = 0; for (Character c : theAlphabet) {theChars[i] = c; i++;}
+        int i = 0;
+        for (Character c : theAlphabet) {
+            theChars[i] = c;
+            i++;
+        }
     }
 
     /**
@@ -39,7 +43,11 @@ public class SelectionOfCharsIndex implements FunctionToInt<Character> {
      */
     @Override
     public int apply(Character character) throws IllegalArgumentException {
-        int i = 0; for (Character c : theChars) {if (c.equals(character)) return i; i++;}
+        int i = 0;
+        for (Character c : theChars) {
+            if (c.equals(character)) return i;
+            i++;
+        }
         throw new IllegalArgumentException();
     }
 }
